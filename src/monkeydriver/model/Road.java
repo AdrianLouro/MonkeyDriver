@@ -9,14 +9,14 @@ import java.util.ArrayList;
  */
 public class Road {
 
-    private ArrayList<Car> obverseCars;
-    private ArrayList<Car> reverseCars;
+    private ArrayList<Vehicle> obverseVehicles;
+    private ArrayList<Vehicle> reverseVehicles;
     private int length;
 
     public Road() {
         this.length = Global.ROAD_LENGTH;
-        this.obverseCars = new ArrayList<>(Global.ROAD_LENGTH/Global.CAR_LENGTH);
-        this.reverseCars = new ArrayList<>(Global.ROAD_LENGTH/Global.CAR_LENGTH);
+        this.obverseVehicles = new ArrayList<>(Global.ROAD_LENGTH/Global.CAR_LENGTH);
+        this.reverseVehicles = new ArrayList<>(Global.ROAD_LENGTH/Global.CAR_LENGTH);
     }
 
 
