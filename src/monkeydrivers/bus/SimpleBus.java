@@ -1,4 +1,7 @@
-package monkeydrivers;
+package monkeydrivers.bus;
+
+import monkeydrivers.message.Message;
+import monkeydrivers.subscriber.Subscriber;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -16,7 +19,7 @@ public class SimpleBus implements Bus {
 
     @Override
     public void send(Message message) {
-        subscribersOf(message.type()).forEach(s->s.receive(message));
+        subscribersOf(message.type()).forEach(s->s.receiveMessage(message));
     }
 
     private List<Subscriber> subscribersOf(String type) {

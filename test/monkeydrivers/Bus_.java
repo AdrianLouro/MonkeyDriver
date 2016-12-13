@@ -1,5 +1,15 @@
 package monkeydrivers;
 
+import monkeydrivers.bus.Bus;
+import monkeydrivers.bus.SimpleBus;
+import monkeydrivers.message.Message;
+import monkeydrivers.publisher.sensor.FrontCarDistanceSensor;
+import monkeydrivers.publisher.sensor.SpeedSensor;
+import monkeydrivers.publisher.sensor.virtualsensor.FrontCarPlateVirtualSensor;
+import monkeydrivers.publisher.sensor.virtualsensor.FrontCarSpeedVirtualSensor;
+import monkeydrivers.publisher.Publisher;
+import monkeydrivers.publisher.sensor.Sensor;
+import monkeydrivers.subscriber.Subscriber;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -27,8 +37,8 @@ public class Bus_ {
         bus.send(foo);
         bus.send(fii);
 
-        verify(subscriberFoo).receive(foo);
-        verify(subscriberFoo, times(0)).receive(fii);
+        verify(subscriberFoo).receiveMessage(foo);
+        verify(subscriberFoo, times(0)).receiveMessage(fii);
     }
 
     @Test
@@ -47,9 +57,24 @@ public class Bus_ {
         bus.send(foo);
         bus.send(fii);
 
-        verify(subscriberFoo).receive(foo);
-        verify(subscriberFoo, times(0)).receive(fii);
-        verify(subscriberFii).receive(fii);
-        verify(subscriberFii, times(0)).receive(foo);
+        verify(subscriberFoo).receiveMessage(foo);
+        verify(subscriberFoo, times(0)).receiveMessage(fii);
+        verify(subscriberFii).receiveMessage(fii);
+        verify(subscriberFii, times(0)).receiveMessage(foo);
+    }
+
+    @Test
+    public void should_send_speed_of_car_ahead() {
+
+        Publisher frontCarPlateSensor = new FrontCarPlateVirtualSensor(bus);
+        Publisher frontCarSpeedSensor = new FrontCarSpeedVirtualSensor(bus);
+
+        Sensor frontCarDistanceSensor = new FrontCarDistanceSensor(bus);
+        Sensor speedSensor = new SpeedSensor(bus);
+
+
+
+
+
     }
 }
