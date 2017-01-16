@@ -1,6 +1,5 @@
-package monkeydrivers.publisher.sensor.virtualsensor;
+package monkeydrivers.publisher.sensor;
 
-import monkeydrivers.publisher.sensor.Sensor;
 import monkeydrivers.subscriber.Subscriber;
 
 public interface VirtualSensor extends Sensor, Subscriber {

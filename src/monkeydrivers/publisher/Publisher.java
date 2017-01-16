@@ -1,5 +1,7 @@
 package monkeydrivers.publisher;
 
+import monkeydrivers.message.Message;
+
 public interface Publisher {
-    void sendMessageToBus();
+    Message sendMessageToBus();
 }

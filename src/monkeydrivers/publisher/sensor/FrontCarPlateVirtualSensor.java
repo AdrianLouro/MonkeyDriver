@@ -1,4 +1,4 @@
-package monkeydrivers.publisher.sensor.virtualsensor;
+package monkeydrivers.publisher.sensor;
 
 import monkeydrivers.bus.Bus;
 import monkeydrivers.message.Message;
@@ -14,8 +14,11 @@ public class FrontCarPlateVirtualSensor implements VirtualSensor {
     }
 
     @Override
-    public void sendMessageToBus() {
-        bus.send(new PlateMessage(frontCarPlate));
+    public Message sendMessageToBus() {
+
+        Message message = new PlateMessage(frontCarPlate);
+        bus.send(message);
+        return message;
     }
 
     @Override

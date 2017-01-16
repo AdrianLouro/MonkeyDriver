@@ -1,6 +1,7 @@
 package monkeydrivers.publisher.sensor;
 
 import monkeydrivers.bus.Bus;
+import monkeydrivers.message.Message;
 import monkeydrivers.message.SpeedMessage;
 
 public class SpeedSensor implements Sensor {
@@ -12,7 +13,9 @@ public class SpeedSensor implements Sensor {
     }
 
     @Override
-    public void sendMessageToBus() {
-        bus.send(new SpeedMessage(speed));
+    public Message sendMessageToBus() {
+        Message message = new SpeedMessage(speed);
+        bus.send(message);
+        return message;
     }
 }

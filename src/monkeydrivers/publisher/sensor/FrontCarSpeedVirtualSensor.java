@@ -1,11 +1,10 @@
-package monkeydrivers.publisher.sensor.virtualsensor;
+package monkeydrivers.publisher.sensor;
 
 import monkeydrivers.bus.Bus;
 import monkeydrivers.message.DistanceMessage;
 import monkeydrivers.message.Message;
 import monkeydrivers.message.PlateMessage;
 import monkeydrivers.message.SpeedMessage;
-import monkeydrivers.publisher.sensor.SpeedSensor;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -22,8 +21,10 @@ public class FrontCarSpeedVirtualSensor implements VirtualSensor {
     }
 
     @Override
-    public void sendMessageToBus() {
-        bus.send(new SpeedMessage(frontCarSpeed));
+    public Message sendMessageToBus() {
+        Message message = new SpeedMessage(frontCarSpeed);
+        bus.send(message);
+        return message;
     }
 
     @Override

@@ -3,12 +3,9 @@ package monkeydrivers;
 import monkeydrivers.bus.Bus;
 import monkeydrivers.bus.SimpleBus;
 import monkeydrivers.message.Message;
-import monkeydrivers.publisher.sensor.FrontCarDistanceSensor;
-import monkeydrivers.publisher.sensor.SpeedSensor;
-import monkeydrivers.publisher.sensor.virtualsensor.FrontCarPlateVirtualSensor;
-import monkeydrivers.publisher.sensor.virtualsensor.FrontCarSpeedVirtualSensor;
+import monkeydrivers.publisher.sensor.FrontCarPlateVirtualSensor;
+import monkeydrivers.publisher.sensor.FrontCarSpeedVirtualSensor;
 import monkeydrivers.publisher.Publisher;
-import monkeydrivers.publisher.sensor.Sensor;
 import monkeydrivers.subscriber.Subscriber;
 import org.junit.Before;
 import org.junit.Test;
@@ -69,8 +66,6 @@ public class Bus_ {
         Publisher frontCarPlateSensor = new FrontCarPlateVirtualSensor(bus);
         Publisher frontCarSpeedSensor = new FrontCarSpeedVirtualSensor(bus);
 
-        Sensor frontCarDistanceSensor = new FrontCarDistanceSensor(bus);
-        Sensor speedSensor = new SpeedSensor(bus);
 
 
 
